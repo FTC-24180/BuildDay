@@ -1,0 +1,48 @@
+# GitHub Pages Configuration for FTC Build Day
+
+# Basic site information
+title: "FTC Build Day - Decode Season"
+description: "Official site for FTC Decode season Build Day event featuring Next Steps video conferences and event materials"
+url: "https://ftc-24180.github.io"
+baseurl: "/BuildDay"
+
+# Theme and plugins
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude files from Jekyll processing
+exclude:
+  - README.md
+  - .gitignore
+
+# Include files that Jekyll would normally exclude
+include:
+  - _config.yml
+
+# Site author and contact
+author:
+  name: "FTC Team 24180"
+  email: "buildday@ftc24180.org"
+
+# Social media and contact
+contact:
+  email: "buildday@ftc24180.org"
+  phone: "(555) 123-4567"
+
+# Event configuration
+event:
+  name: "FTC Build Day"
+  season: "Decode"
+  date: "2024"
+  
+# Collections (for future expansion)
+collections_dir: _collections
+
+# Markdown processing
+markdown: kramdown
+highlighter: rouge
+
+# Timezone
+timezone: America/New_York
