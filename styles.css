@@ -86,30 +86,45 @@ body {
 
 .first-logo-section {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row; /* Position side by side */
+    align-items: center; /* Center vertically */
+    gap: 1rem; /* Space between logo and season badge */
+    max-width: 50vw; /* Combined width never exceeds 50% of viewport */
+    flex-shrink: 1;
 }
 
 .first-logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex: 0 1 auto; /* Don't grow, can shrink, auto basis */
 }
 
-.first-text {
-    font-family: var(--font-tech);
-    font-size: 2.2rem;
-    font-weight: 900;
-    color: var(--first-blue);
-    letter-spacing: -1px;
-    line-height: 1;
-    text-shadow: 0 0 10px rgba(0, 102, 179, 0.5);
+/* FIRST Tech Challenge logo image constraints */
+.first-logo img {
+    max-width: 100%;
+    height: 4rem; /* Fixed height for consistent sizing */
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
-.registered {
-    font-size: 0.8rem;
-    vertical-align: super;
-    color: var(--decode-bright);
+/* Season badge positioning and sizing - match FTC logo height */
+.season-badge {
+    flex: 0 0 auto; /* Don't grow or shrink, auto basis */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove previous styling that was for text-based badge */
+}
+
+/* Season badge image styling - same height as FTC logo */
+.season-badge img {
+    max-width: 100%;
+    height: 4rem; /* Same height as FTC logo */
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .tech-challenge {
@@ -119,16 +134,6 @@ body {
     color: var(--first-red);
     text-transform: uppercase;
     letter-spacing: 2px;
-}
-
-.season-badge {
-    background: linear-gradient(135deg, var(--decode-accent), var(--cyber-blue));
-    color: var(--decode-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    display: inline-block;
-    border: 1px solid var(--matrix-green);
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
 }
 
 .season-title {
@@ -148,6 +153,11 @@ body {
 
 .event-title {
     text-align: right;
+    flex: 1;
+    min-width: 45%; /* Ensure event title gets at least 45% of space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
     .event-title h1 {
@@ -213,7 +223,6 @@ main {
         right: 0;
         height: 2px;
         background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
-        animation: dataFlow 2s ease-in-out infinite;
     }
 
 @keyframes dataFlow {
@@ -376,6 +385,16 @@ main {
     }
 
     .decode-badge.hardware {
+        background: var(--decode-accent);
+        color: white;
+    }
+
+    .decode-badge.facility {
+        background: var(--cyber-blue);
+        color: white;
+    }
+
+    .decode-badge.parking {
         background: var(--decode-accent);
         color: white;
     }
@@ -759,109 +778,82 @@ main {
     border-top: 1px solid rgba(0, 255, 65, 0.3);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .header-branding {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .event-title {
-        text-align: center;
-    }
-
-    .decode-values {
-        grid-template-columns: 1fr;
-    }
-
-    .links-grid,
-    .materials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+/* Facility map container and image styling */
+.map-placeholder {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    background: rgba(27, 38, 59, 0.5);
 }
 
-@media (max-width: 480px) {
-    .first-text {
-        font-size: 1.8rem;
-    }
-
-    .event-title h1 {
-        font-size: 1.6rem;
-    }
-
-    .section-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-    }
-
-        .section-header h2 {
-            font-size: 1.4rem;
-        }
+.facility-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-width: 100%;
 }
 
-/* Animation for page load */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Ensure the map container has proper responsive behavior */
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
 }
 
-.decode-section {
-    animation: fadeInUp 0.6s ease-out;
+.map-container, .parking-container {
+    background: rgba(27, 38, 59, 0.8);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    transition: all 0.3s ease;
 }
 
-    .decode-section:nth-child(1) {
-        animation-delay: 0.1s;
-    }
-
-    .decode-section:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    .decode-section:nth-child(3) {
-        animation-delay: 0.3s;
-    }
-
-    .decode-section:nth-child(4) {
-        animation-delay: 0.4s;
-    }
-
-    .decode-section:nth-child(5) {
-        animation-delay: 0.5s;
-    }
-
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+.map-container:hover, .parking-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 255, 65, 0.2);
+    border-color: var(--matrix-green);
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    .decode-section {
-        border: 2px solid var(--matrix-green);
-    }
+/* Header styling for both containers */
+.map-header, .parking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
 
-    .link-card, .material-item, .contact-item {
-        border: 2px solid var(--cyber-blue);
-    }
+.map-header h3, .parking-header h3 {
+    font-family: var(--font-tech);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--decode-bright);
+    margin: 0;
+}
+
+/* Unified responsive map styling for both facility and parking maps */
+.responsive-map-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    background: rgba(27, 38, 59, 0.5);
+    position: relative;
+}
+
+.responsive-map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-width: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for better interactivity */
+.responsive-map-container:hover .responsive-map-image {
+    transform: scale(1.02);
 }
