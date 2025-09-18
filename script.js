@@ -257,8 +257,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSampleAnnouncements();
     
     // Check session times every minute
-    checkSessionTimes();
-    setInterval(checkSessionTimes, 60000);
+    //checkSessionTimes();
+    //setInterval(checkSessionTimes, 60000);
     
     // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
