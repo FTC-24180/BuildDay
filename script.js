@@ -215,17 +215,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Add some sample announcements
-        setTimeout(() => {
-            addAnnouncement('📶 WiFi network "BuildDay2024" is now available. Password: FTC2024!', '8:45 AM');
-        }, 1000);
+        //setTimeout(() => {
+        //    addAnnouncement('📶 WiFi network "BuildDay2024" is now available. Password: FTC2024!', '8:45 AM');
+        //}, 1000);
         
-        setTimeout(() => {
-            addAnnouncement('🍕 Lunch will be served from 12:00 PM to 1:00 PM in the main hall.', '8:50 AM');
-        }, 2000);
-        
-        setTimeout(() => {
-            addAnnouncement('💡 Don\'t forget to bring your laptops and charging cables for the technical workshop!', '8:55 AM');
-        }, 3000);
+        //setTimeout(() => {
+        //    addAnnouncement('🍕 Lunch will be served from 12:00 PM to 1:00 PM in the main hall.', '8:50 AM');
+        //}, 2000);
     }
     
     // Function to update video conference links (for admin use)

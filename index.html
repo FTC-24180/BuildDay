@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FTC Build Day - Decode Season</title>
+    <title>FTC Build Day - FIRST® Tech Challenge DECODE™</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://www.firstinspires.org/sites/all/themes/first/favicon.ico">
     <!-- Development-only scripts (will fail silently in production) -->
     <script>
         // Check if running locally
@@ -23,118 +24,275 @@
     </script>
 </head>
 <body>
-    <header>
+    <header class="decode-header">
         <div class="container">
-            <h1>FTC Build Day</h1>
-            <p class="subtitle">Decode Season</p>
+            <div class="header-branding">
+                <div class="first-logo-section">
+                    <div class="first-logo">
+                        <span class="first-text">FIRST</span>
+                        <span class="registered">®</span>
+                        <span class="tech-challenge">Tech Challenge</span>
+                    </div>
+                    <div class="season-badge">
+                        <span class="season-title">DECODE™</span>
+                        <span class="season-year">2024-25</span>
+                    </div>
+                </div>
+                <div class="event-title">
+                    <h1>Alabama FTC Build Day</h1>
+                    <p class="team-subtitle">Hosted by Adtran and FTC_24180 Blue Bananas</p>
+                </div>
+            </div>
+            <div class="digital-pattern"></div>
         </div>
     </header>
 
     <main class="container">
-        <section class="welcome">
-            <h2>Welcome to Build Day!</h2>
-            <p>Join us for an exciting day of robotics, learning, and collaboration as we dive into the FTC Decode season. This page contains all the essential information you'll need throughout the event.</p>
+        <section class="welcome decode-section">
+            <div class="section-header">
+                <div class="section-icon">🔓</div>
+                <h2>Saturday, Sept. 20, 2025, 10am - 1pm CST</h2>
+            </div>
+            <p>Join us for an exciting day of robotics innovation as we prepare for the <strong>DECODE™</strong> season. Unlock the mysteries of code, collaboration, and competition as we build the future together.</p>
+            <p>Adtran Conference Center in Huntsvile, Alabama</p>
+            <!--<div class="decode-values">
+            <div class="value-item">
+                <span class="value-icon">🔑</span>
+                <span>Decode Challenges</span>
+            </div>
+            <div class="value-item">
+                <span class="value-icon">💻</span>
+                <span>Programming Excellence</span>
+            </div>
+            <div class="value-item">
+                <span class="value-icon">🚀</span>
+                <span>Innovation Mindset</span>
+            </div>
+            <div class="value-item">
+                <span class="value-icon">🤝</span>
+                <span>Gracious Professionalism®</span>
+            </div>
+        </div>-->
+        </section>
+        <section class="event-itinerary decode-section">
+            <div class="section-header">
+                <div class="section-icon">⏰</div>
+                <h2>Event Itinerary</h2>
+            </div>
+            <ul class="itinerary-list">
+                <li><strong>7:00 AM</strong> - Volunteer check-in</li>
+                <li><strong>9:30 AM</strong> - Doors open</li>
+                <li><strong>10:00 AM</strong> - Event begins with Opening Remarks</li>
+                <li><strong>10:30 AM</strong> - Session 1 Getting Started Presentation</li>
+                <li><strong>11:10 AM</strong> - Session 2 Awards Overview Presentation</li>
+                <li><strong>11:50 AM</strong> - Session 3 Engineering Design Process Presentation</li>
+                <li><strong>12:20-1:00 PM</strong> - Lunch Break: Cheese or Pepperoni Pizza ($10/pizza)</li>
+                <li><strong>1:00 PM</strong> - Session 4 Robot Game Strategy Student Round Table</li>
+                <li><strong>1:50 PM</strong> - Closing Remarks</li>
+            </ul>
         </section>
 
-        <section class="next-steps">
-            <h2>📹 Next Steps & Video Conferences</h2>
+        <section class="next-steps decode-section">
+            <div class="section-header">
+                <div class="section-icon">📡</div>
+                <h2>NEXT STEPS Online Learning Sessions</h2>
+            </div>
             <div class="links-grid">
-                <div class="link-card">
-                    <h3>Opening Session</h3>
-                    <p>Welcome and overview of the day's activities</p>
-                    <a href="#" class="video-link" data-session="opening">Join Video Call</a>
-                    <span class="time">9:00 AM - 9:30 AM</span>
+                <div class="link-card cad-session">
+                    <div class="card-header">
+                        <h3>CAD Overview</h3>
+                        <div class="decode-badge cad">CAD</div>
+                    </div>
+                    <p>Learn some CAD</p>
+                    <!--<a href="#" class="video-link decode-primary-btn" data-session="opening">
+                    <span class="btn-icon">🔓</span>
+                    Join
+                </a>-->
+                    <p class="decode-primary-btn">Link coming soon</p>
+                    <span class="time">Wed, 9/24, 7-8 PM CST</span>
                 </div>
-                
-                <div class="link-card">
-                    <h3>Technical Workshop</h3>
-                    <p>Hands-on coding and robot building session</p>
-                    <a href="#" class="video-link" data-session="workshop">Join Video Call</a>
-                    <span class="time">10:00 AM - 12:00 PM</span>
+
+                <div class="link-card hardware-session">
+                    <div class="card-header">
+                        <h3>Hardware</h3>
+                        <div class="decode-badge hardware">HARDWARE</div>
+                    </div>
+                    <p>Hardware workshop</p>
+                    <!--<a href="#" class="video-link decode-secondary-btn" data-session="workshop">
+                    <span class="btn-icon">💻</span>
+                    Join Workshop
+                </a>-->
+                    <p class="decode-primary-btn">Link coming soon</p>
+                    <span class="time">Week of 10/6 (Day and time TBD)</span>
                 </div>
-                
-                <div class="link-card">
-                    <h3>Strategy Session</h3>
-                    <p>Game strategy and alliance building</p>
-                    <a href="#" class="video-link" data-session="strategy">Join Video Call</a>
-                    <span class="time">1:00 PM - 2:30 PM</span>
+
+                <!--<div class="link-card strategy-session">
+                <div class="card-header">
+                    <h3>Strategy Decoding</h3>
+                    <div class="decode-badge strategy">STRATEGY</div>
                 </div>
-                
-                <div class="link-card">
-                    <h3>Closing & Next Steps</h3>
-                    <p>Wrap-up and planning for the season ahead</p>
-                    <a href="#" class="video-link" data-session="closing">Join Video Call</a>
-                    <span class="time">3:00 PM - 4:00 PM</span>
+                <p>Game analysis, scoring optimization, and alliance strategies for competitive success</p>
+                <a href="#" class="video-link decode-accent-btn" data-session="strategy">
+                    <span class="btn-icon">🎯</span>
+                    Decode Strategy
+                </a>
+                <span class="time">1:00 PM - 2:30 PM EST</span>
+            </div>-->
+
+                <div class="link-card software-session">
+                    <div class="card-header">
+                        <h3>Software</h3>
+                        <div class="decode-badge code">CODE</div>
+                    </div>
+                    <!--<p>Hands-on coding sessions, algorithm design, and robot programming for DECODE challenges</p>-->
+                    <p>Coding</p>
+
+                    <!--<a href="#" class="video-link decode-primary-btn" data-session="software">
+                    <span class="btn-icon">🏁</span>
+                    Execute Protocol
+                </a>-->
+                    <p class="decode-primary-btn">Link coming soon</p>
+                    <span class="time">TBD</span>
                 </div>
             </div>
         </section>
 
-        <section class="event-materials">
-            <h2>📋 Event Materials</h2>
+        <section class="event-materials decode-section">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2>Official Resources Database</h2>
+            </div>
             <div class="materials-grid">
-                <div class="material-item">
-                    <div class="material-icon">🗺️</div>
-                    <h3>Site Map</h3>
-                    <p>Navigate the venue with our detailed site map</p>
-                    <a href="#" class="download-link" data-material="sitemap">Download PDF</a>
+                <div class="material-item game-manual">
+                    <div class="material-header">
+                        <div class="material-icon">📕</div>
+                        <span class="official-badge">OFFICIAL</span>
+                    </div>
+                    <h3>Game Manual 1</h3>
+                    <p>Complete rules and regulations for FIRST® Tech Challenge DECODE™</p>
+                    <a href="https://www.firstinspires.org/resource-library/ftc/game-and-season-info" class="download-link decode-download-btn" target="_blank">
+                        <span class="btn-icon">📥</span>
+                        Access Manual
+                    </a>
                 </div>
-                
-                <div class="material-item">
-                    <div class="material-icon">📅</div>
-                    <h3>Daily Itinerary</h3>
-                    <p>Complete schedule of all activities and sessions</p>
-                    <a href="#" class="download-link" data-material="itinerary">Download PDF</a>
+
+                <!--<div class="material-item programming-guide">
+                <div class="material-header">
+                    <div class="material-icon">💾</div>
+                    <span class="resource-badge">CODE</span>
                 </div>
-                
-                <div class="material-item">
-                    <div class="material-icon">📖</div>
-                    <h3>Resource Guide</h3>
-                    <p>Essential links and references for FTC teams</p>
-                    <a href="#" class="download-link" data-material="resources">Download PDF</a>
+                <h3>Programming Toolkit</h3>
+                <p>Java, Blocks, and Python resources for robot programming</p>
+                <a href="#" class="download-link decode-download-btn" data-material="programming">
+                    <span class="btn-icon">⚡</span>
+                    Download Kit
+                </a>
+            </div>-->
+
+                <div class="material-item field-setup">
+                    <div class="material-header">
+                        <div class="material-icon">🏗️</div>
+                        <span class="resource-badge">SETUP</span>
+                    </div>
+                    <h3>Field Assembly Guide</h3>
+                    <p>Official field setup instructions and game element specifications</p>
+                    <a href="https://ftc-resources.firstinspires.org/ftc/archive/2026/field" class="download-link decode-download-btn" data-material="field-setup">
+                        <span class="btn-icon">🔧</span>
+                        Access Guide
+                    </a>
                 </div>
-                
-                <div class="material-item">
-                    <div class="material-icon">🏆</div>
-                    <h3>Competition Rules</h3>
-                    <p>Key rules and regulations for the Decode season</p>
-                    <a href="#" class="download-link" data-material="rules">Download PDF</a>
+
+                <!--<div class="material-item build-day-data">
+                <div class="material-header">
+                    <div class="material-icon">📋</div>
+                    <span class="event-badge">EVENT</span>
                 </div>
+                <h3>Build Day Protocol</h3>
+                <p>Complete agenda with session timestamps and break intervals</p>
+                <a href="#" class="download-link decode-download-btn" data-material="agenda">
+                    <span class="btn-icon">⏰</span>
+                    View Protocol
+                </a>
+            </div>-->
             </div>
         </section>
 
-        <section class="announcements">
-            <h2>📢 Announcements</h2>
+        <section class="announcements decode-section">
+            <div class="section-header">
+                <div class="section-icon">📢</div>
+                <h2>System Updates</h2>
+            </div>
             <div class="announcement-board">
-                <div class="announcement">
-                    <span class="timestamp">9:00 AM</span>
-                    <p>Welcome to Build Day! Please check in at the registration table.</p>
+                <div class="announcement priority">
+                    <div class="announcement-meta">
+                        <span class="timestamp">09:00</span>
+                        <span class="priority-badge">SYSTEM ALERT</span>
+                    </div>
+                    <p><strong>💡 Don't forget to bring your laptops and charging cables for the technical workshop!'</strong>, '8:55 AM'</p>
                 </div>
-                <!-- More announcements will be added dynamically -->
+                <!--More announcements will be added dynamically-->
             </div>
         </section>
 
-        <section class="contact">
-            <h2>📞 Contact Information</h2>
+        <section class="contact decode-section">
+            <div class="section-header">
+                <div class="section-icon">📞</div>
+                <h2>Support Network</h2>
+            </div>
             <div class="contact-grid">
-                <div class="contact-item">
-                    <h3>Event Coordinator</h3>
-                    <p>For general questions and assistance</p>
-                    <p><strong>Email:</strong> buildday@ftc24180.org</p>
+                <div class="contact-item coordinator">
+                    <div class="contact-header">
+                        <h3>Event Administrator</h3>
+                        <div class="contact-badge">PRIMARY</div>
+                    </div>
+                    <p>General queries, registration, and event coordination</p>
+                    <div class="contact-details">
+                        <p><strong>Email:</strong></p>
+                    </div>
                 </div>
-                
-                <div class="contact-item">
-                    <h3>Technical Support</h3>
-                    <p>For technical issues and video conference problems</p>
-                    <p><strong>Phone:</strong> (555) 123-4567</p>
+
+                <div class="contact-item technical">
+                    <div class="contact-header">
+                        <h3>Technical Support</h3>
+                        <div class="contact-badge">DEBUG</div>
+                    </div>
+                    <p>Programming assistance, robot debugging, and system troubleshooting</p>
+                    <div class="contact-details">
+                        <p><strong>Phone:</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="decode-footer">
         <div class="container">
-            <p>&copy; 2024 FTC Team 24180 - Build Day. All rights reserved.</p>
-            <p>Part of the FIRST Tech Challenge Decode Season</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="first-footer-logo">
+                        <span class="first-text">FIRST</span>
+                        <span class="registered">®</span>
+                    </div>
+                    <p>Inspiring young people to be science and technology leaders and innovators</p>
+                    <div class="decode-signature">
+                        <span class="decode-text">DECODE™</span>
+                        <span class="decode-tagline">// Unlock Your Potential</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Access</h4>
+                    <ul>
+                        <li><a href="https://www.firstinspires.org/robotics/ftc" target="_blank">FTC Portal</a></li>
+                        <li><a href="https://ftc-events.firstinspires.org/" target="_blank">Event System</a></li>
+                        <li><a href="https://www.firstinspires.org/resource-library/ftc" target="_blank">Resource Library</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <p>&copy; 2024 FTC Team 24180. FIRST®, the FIRST® logo, and DECODE™ are trademarks of FIRST.</p>
+                    <p class="gracious-prof">Building robots, building character, building the future.</p>
+                    <div class="footer-decode">Powered by Innovation • Driven by Code</div>
+                </div>
+            </div>
         </div>
     </footer>
 
