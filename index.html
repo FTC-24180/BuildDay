@@ -6,6 +6,21 @@
     <title>FTC Build Day - Decode Season</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Development-only scripts (will fail silently in production) -->
+    <script>
+        // Check if running locally
+        const isLocal = window.location.hostname === 'localhost' ||
+            window.location.hostname === '127.0.0.1' ||
+            window.location.hostname === '';
+
+        if (isLocal) {
+            // Load development configuration
+            const debugScript = document.createElement('script');
+            debugScript.src = 'config/debug.js';
+            debugScript.onerror = () => console.log('Debug config not available');
+            document.head.appendChild(debugScript);
+        }
+    </script>
 </head>
 <body>
     <header>
