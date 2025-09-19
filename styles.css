@@ -616,12 +616,6 @@ main {
         border-bottom: none;
     }
 
-.announcement-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
 .timestamp {
     background: var(--matrix-green);
     color: var(--decode-primary);
