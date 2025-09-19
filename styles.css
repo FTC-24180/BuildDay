@@ -697,6 +697,25 @@ main {
         color: var(--decode-bright);
     }
 
+/* Contact section email links styling */
+.contact-details a {
+    color: var(--matrix-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(146, 219, 172, 0.3);
+}
+
+.contact-details a:hover {
+    color: var(--success-green);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+    text-decoration: underline;
+}
+
+.contact-details a:visited {
+    color: var(--matrix-green);
+}
+
 /* Footer - DECODE Branding */
 .decode-footer {
     background: linear-gradient(135deg, var(--decode-primary), var(--decode-secondary));
