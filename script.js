@@ -17,6 +17,180 @@ document.addEventListener('DOMContentLoaded', function() {
         'rules': '#'
     };
     
+    // Initialize clickable images for full-size viewing
+    function initializeImageModal() {
+        // Select images in parking-container and map-container
+        const clickableImages = document.querySelectorAll('.parking-container .responsive-map-image, .map-container .responsive-map-image');
+        
+        clickableImages.forEach(img => {
+            // Add cursor pointer and click event
+            img.style.cursor = 'pointer';
+            img.title = 'Click to view full size';
+            
+            img.addEventListener('click', function() {
+                showImageModal(this.src, this.alt);
+            });
+        });
+    }
+    
+    // Create and show image modal
+    function showImageModal(imageSrc, imageAlt) {
+        // Remove existing modal if present
+        const existingModal = document.querySelector('.image-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+        
+        // Create modal elements
+        const modal = document.createElement('div');
+        modal.className = 'image-modal';
+        
+        const modalContent = document.createElement('div');
+        modalContent.className = 'image-modal-content';
+        
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'image-modal-close';
+        closeBtn.innerHTML = '&times;';
+        closeBtn.title = 'Close';
+        
+        const image = document.createElement('img');
+        image.src = imageSrc;
+        image.alt = imageAlt;
+        image.className = 'modal-image';
+        
+        // Assemble modal
+        modalContent.appendChild(closeBtn);
+        modalContent.appendChild(image);
+        modal.appendChild(modalContent);
+        
+        // Add modal styles
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+        `;
+        
+        modalContent.style.cssText = `
+            position: relative;
+            max-width: 95vw;
+            max-height: 95vh;
+            background: rgba(13, 27, 42, 0.95);
+            border-radius: 12px;
+            border: 2px solid var(--matrix-green);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+            overflow: hidden;
+        `;
+        
+        closeBtn.style.cssText = `
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--matrix-green);
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 10000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+        `;
+        
+        image.style.cssText = `
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            max-width: 90vw;
+            max-height: 85vh;
+        `;
+        
+        // Add modal animation styles if not already added
+        if (!document.querySelector('#modal-styles')) {
+            const style = document.createElement('style');
+            style.id = 'modal-styles';
+            style.textContent = `
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                .image-modal-close:hover {
+                    background: rgba(0, 255, 65, 0.2) !important;
+                    transform: scale(1.1);
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Add event listeners for closing
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        function closeModal() {
+            // Restore body scroll immediately when closing starts
+            document.body.style.overflow = '';
+            
+            modal.style.animation = 'fadeOut 0.3s ease-out';
+            setTimeout(() => {
+                if (modal.parentNode) {
+                    modal.remove();
+                }
+            }, 300);
+        }
+        
+        // Add fadeOut animation
+        const existingFadeOut = document.querySelector('#fadeout-animation');
+        if (!existingFadeOut) {
+            const fadeOutStyle = document.createElement('style');
+            fadeOutStyle.id = 'fadeout-animation';
+            fadeOutStyle.textContent = `
+                @keyframes fadeOut {
+                    from {
+                        opacity: 1;
+                    }
+                    to {
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(fadeOutStyle);
+        }
+        
+        // Add modal to document
+        document.body.appendChild(modal);
+        
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
+    }
+    
     // Initialize video conference links
     function initializeVideoLinks() {
         const videoLinkElements = document.querySelectorAll('.video-link');
@@ -122,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.head.appendChild(style);
         }
         
-        // Add close functionality
+        // Close functionality
         const closeBtn = notification.querySelector('.notification-close');
         closeBtn.addEventListener('click', () => {
             notification.remove();
@@ -252,6 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Initialize everything
+    initializeImageModal(); // New: Initialize clickable images
     initializeVideoLinks();
     initializeMaterialLinks();
     initializeSampleAnnouncements();

@@ -88,15 +88,6 @@ body {
     z-index: 2;
 }
 
-.first-logo-section {
-    display: flex;
-    flex-direction: row; /* Position side by side */
-    align-items: center; /* Center vertically */
-    gap: 1rem; /* Space between logo and season badge */
-    max-width: 50vw; /* Combined width never exceeds 50% of viewport */
-    flex-shrink: 1;
-}
-
 .first-logo {
     display: flex;
     align-items: center;
@@ -115,11 +106,11 @@ body {
 
 /* Season badge positioning and sizing - match FTC logo height */
 .season-badge {
-    flex: 0 0 auto; /* Don't grow or shrink, auto basis */
+    flex: 1; /* Allow it to grow and take available space */
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* Remove previous styling that was for text-based badge */
+    justify-content: flex-end; /* Right-justify within its allocated space */
+    margin-right: 1rem; /* Add spacing between season badge and event title */
 }
 
     /* Season badge image styling - same height as FTC logo */
@@ -131,47 +122,22 @@ body {
         display: block;
     }
 
-.tech-challenge {
-    font-family: var(--font-tech);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--first-red);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.season-title {
-    font-family: var(--font-tech);
-    font-weight: 900;
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.season-year {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    margin-left: 0.5rem;
-    font-family: var(--font-code);
-}
-
 .event-title {
     text-align: right;
-    flex: 1;
-    min-width: 45%; /* Ensure event title gets at least 45% of space */
+    flex: 0 0 auto; /* Don't grow or shrink, auto basis */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-    .event-title h1 {
-        font-family: var(--font-tech);
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--decode-bright);
-        margin-bottom: 0.25rem;
-        text-shadow: 0 0 10px rgba(224, 225, 221, 0.5);
-    }
+.event-title h1 {
+    font-family: var(--font-tech);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--decode-bright);
+    margin-bottom: 0.25rem;
+    text-shadow: 0 0 10px rgba(224, 225, 221, 0.5);
+}
 
 .team-subtitle {
     color: var(--code-orange);
@@ -331,7 +297,6 @@ main {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background: rgba(224, 225, 221, 0.95);
     border-radius: 8px;
     border: 2px solid var(--matrix-green);
     box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
