@@ -1,4 +1,4 @@
-/* FIRST FTC DECODE Season Theme */
+﻿/* FIRST FTC DECODE Season Theme */
 :root {
     /* FIRST Official Colors */
     --first-blue: #0066B3;
@@ -12,10 +12,10 @@
     --decode-highlight: #778DA9; /* Light blue-gray */
     --decode-bright: #E0E1DD; /* Off-white */
     /* Digital Theme Colors */
-    --matrix-green: #92dbac; 
+    --matrix-green: #92dbac;
     --cyber-blue: #598290;
-    --code-orange: #e5ae32; 
-    --error-red: #ea572e; 
+    --code-orange: #e5ae32;
+    --error-red: #ea572e;
     --success-green: #39FF14; /* Neon green */
     /* Functional Colors */
     --warning-yellow: #FFD700;
@@ -104,14 +104,14 @@ body {
     flex: 0 1 auto; /* Don't grow, can shrink, auto basis */
 }
 
-/* FIRST Tech Challenge logo image constraints */
-.first-logo img {
-    max-width: 100%;
-    height: 4rem; /* Fixed height for consistent sizing */
-    width: auto;
-    object-fit: contain;
-    display: block;
-}
+    /* FIRST Tech Challenge logo image constraints */
+    .first-logo img {
+        max-width: 100%;
+        height: 4rem; /* Fixed height for consistent sizing */
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
 
 /* Season badge positioning and sizing - match FTC logo height */
 .season-badge {
@@ -122,14 +122,14 @@ body {
     /* Remove previous styling that was for text-based badge */
 }
 
-/* Season badge image styling - same height as FTC logo */
-.season-badge img {
-    max-width: 100%;
-    height: 4rem; /* Same height as FTC logo */
-    width: auto;
-    object-fit: contain;
-    display: block;
-}
+    /* Season badge image styling - same height as FTC logo */
+    .season-badge img {
+        max-width: 100%;
+        height: 4rem; /* Same height as FTC logo */
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
 
 .tech-challenge {
     font-family: var(--font-tech);
@@ -313,6 +313,55 @@ main {
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
+/* QR Code Section Styling */
+.qr-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(27, 38, 59, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+.qr-code {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(224, 225, 221, 0.95);
+    border-radius: 8px;
+    border: 2px solid var(--matrix-green);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+.qr-image {
+    width: 256px;
+    height: 256px;
+    object-fit: contain;
+    display: block;
+    border-radius: 4px;
+}
+
+.qr-instructions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+    .qr-instructions p {
+        margin: 0;
+        color: var(--decode-highlight);
+    }
+
+        .qr-instructions p:first-child {
+            color: var(--decode-bright);
+            font-size: 1.1rem;
+        }
+
 /* Session cards */
 .links-grid {
     display: grid;
@@ -401,6 +450,11 @@ main {
     .decode-badge.parking {
         background: var(--decode-accent);
         color: white;
+    }
+
+    .decode-badge.registration {
+        background: var(--matrix-green);
+        color: var(--decode-primary);
     }
 
 @keyframes pulse {
@@ -816,11 +870,11 @@ main {
     transition: all 0.3s ease;
 }
 
-.map-container:hover, .parking-container:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 255, 65, 0.2);
-    border-color: var(--matrix-green);
-}
+    .map-container:hover, .parking-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 255, 65, 0.2);
+        border-color: var(--matrix-green);
+    }
 
 /* Header styling for both containers */
 .map-header, .parking-header {
@@ -830,13 +884,13 @@ main {
     margin-bottom: 1rem;
 }
 
-.map-header h3, .parking-header h3 {
-    font-family: var(--font-tech);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--decode-bright);
-    margin: 0;
-}
+    .map-header h3, .parking-header h3 {
+        font-family: var(--font-tech);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--decode-bright);
+        margin: 0;
+    }
 
 /* Unified responsive map styling for both facility and parking maps */
 .responsive-map-container {
@@ -860,4 +914,53 @@ main {
 /* Hover effect for better interactivity */
 .responsive-map-container:hover .responsive-map-image {
     transform: scale(1.02);
+}
+
+/* Itinerary list styling */
+.itinerary-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+    .itinerary-list li {
+        margin-bottom: 0.75rem;
+        padding-left: 1rem;
+        position: relative;
+    }
+
+        /* Style for nested lists within itinerary items */
+        .itinerary-list li ul {
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+            padding-left: 2rem; /* This creates the indentation */
+            list-style-type: disc; /* Adds bullet points */
+        }
+
+            .itinerary-list li ul li {
+                margin-bottom: 0.25rem;
+                padding-left: 0.5rem;
+                color: var(--decode-highlight); /* Slightly different color for sub-items */
+            }
+
+    /* Optional: Add bullet points for main items */
+    .itinerary-list > li::before {
+        content: "▶";
+        color: var(--matrix-green);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+/* Responsive design for QR container */
+@media (max-width: 768px) {
+    .qr-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .qr-image {
+        width: 200px;
+        height: 200px;
+    }
 }
