@@ -204,10 +204,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add click event for tracking
             link.addEventListener('click', function(e) {
-                // In a real implementation, you might want to track clicks
-                console.log(`Video conference accessed: ${session}`);
+                // Track video conference access
+                trackEvent('video_conference_join', {
+                    session_type: session,
+                    event_category: 'engagement'
+                });
                 
-                // Show joining message
+                console.log(`Video conference accessed: ${session}`);
                 showNotification(`Opening ${session} video conference...`, 'info');
             });
         });
@@ -221,7 +224,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (materialLinks[material]) {
                 link.href = materialLinks[material];
                 
-                // For now, prevent default since links are placeholders
+                // Track successful downloads
+                link.addEventListener('click', function(e) {
+                    if (materialLinks[material] !== '#') {
+                        trackEvent('file_download', {
+                            file_name: material,
+                            event_category: 'downloads'
+                        });
+                    }
+                });
+                
+                // For placeholder links
                 if (materialLinks[material] === '#') {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -455,4 +468,76 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('  - updateVideoLink(session, url)');
     console.log('  - updateMaterialLink(material, url)');
     console.log('  - addBuildDayAnnouncement(message)');
+});
+
+// Enhanced Google Analytics tracking
+function trackEvent(eventName, parameters = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, parameters);
+    }
+}
+
+// Track video link clicks
+function initializeVideoLinks() {
+    const videoLinkElements = document.querySelectorAll('.video-link');
+    videoLinkElements.forEach(link => {
+        const session = link.getAttribute('data-session');
+        if (videoLinks[session]) {
+            link.href = videoLinks[session];
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+        }
+        
+        // Add click event for tracking
+        link.addEventListener('click', function(e) {
+            // Track video conference access
+            trackEvent('video_conference_join', {
+                session_type: session,
+                event_category: 'engagement'
+            });
+            
+            console.log(`Video conference accessed: ${session}`);
+            showNotification(`Opening ${session} video conference...`, 'info');
+        });
+    });
+}
+
+// Track material downloads
+function initializeMaterialLinks() {
+    const materialLinkElements = document.querySelectorAll('.download-link');
+    materialLinkElements.forEach(link => {
+        const material = link.getAttribute('data-material');
+        if (materialLinks[material]) {
+            link.href = materialLinks[material];
+            
+            // Track successful downloads
+            link.addEventListener('click', function(e) {
+                if (materialLinks[material] !== '#') {
+                    trackEvent('file_download', {
+                        file_name: material,
+                        event_category: 'downloads'
+                    });
+                }
+            });
+            
+            // For placeholder links
+            if (materialLinks[material] === '#') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showNotification(`${material} download will be available soon!`, 'warning');
+                });
+            }
+        }
+    });
+}
+
+// Track external link clicks
+document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A' && e.target.hostname !== window.location.hostname) {
+        trackEvent('external_link_click', {
+            link_url: e.target.href,
+            link_text: e.target.textContent,
+            event_category: 'outbound_links'
+        });
+    }
 });
